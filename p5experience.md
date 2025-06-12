@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: Work Experience
 ---
 
 <p class="message">
