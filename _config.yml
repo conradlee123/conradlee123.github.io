@@ -4,8 +4,8 @@ highlighter:      pygments
 
 # Setup
 title:            Conrad Lee
-tagline:          'A portfolio'
-description:      "A portfolio"
+tagline:          'A data portfolio'
+description:      "A data portfolio"
 url:              http://hyde.getpoole.com
 baseurl:          https://conradlee123.github.io/
 

@@ -72,12 +72,12 @@ html {
 
 /* Sidebar links */
 .sidebar a {
-  color: #fff;
+  color: #f9f9f9;
 }
 
 /* About section */
 .sidebar-about h1 a {
-  color: #fff;
+  color: #fbfbfb;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   font-family: "Bentham" !important;

@@ -3,6 +3,43 @@ layout: default
 title: Home
 ---
 
+<link href="https://fonts.googleapis.com/css2?family=Norican&display=swap" rel="stylesheet">
+
+<h1>Welcome!</h1>
+
+<p>Thanks for stopping by. I'm glad you're here.</p>
+
+<p>This is my data portfolio. Here, you can see some of the things that I've learned.</p>
+
+<nav class="sidebar-nav">
+  <ul>
+  {% assign pages_list = site.pages %}
+    {% for node in pages_list %}
+      {% if node.title != null %}
+        {% if node.layout == "page" %}
+          <li>
+            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
+          </li>  
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>
+
+<p>If you have any ideas or feedback, please feel free to reach out. I'm always looking to learn something new.</p>
+
+<p>I've enjoyed creating this portfolio. I hope you enjoy viewing it as well.</p>
+
+<h6 style="color: #606060;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  font-family: 'Norican' !important; 
+  font-size: 1.25rem;
+  letter-spacing: 0.02rem !important;
+  line-height: 1 !important;
+  font-weight: normal !important;">-Conrad</h6>
+
+<!--
 <div class="posts">
   {% for post in paginator.posts %}
   <div class="post">
@@ -35,3 +72,4 @@ title: Home
     <span class="pagination-item newer">Newer</span>
   {% endif %}
 </div>
+-->

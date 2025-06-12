@@ -40,7 +40,7 @@ title: About Me
   <img class="column-img" src="public/images/hay.jpg" alt="Headshot"/>
   </div>
   <div style="flex: 1; min-width: 200px; padding: 0.5rem;">
-  My rural upbringing imbued me with a deep curiosity for the world around me and a sense of social responsibility, two traits that define who I am today.
+  My rural upbringing left me with a deep curiosity for the world and a sense of social responsibility, two traits that define who I am today.
   </div>
 </div>
 
@@ -77,6 +77,15 @@ title: About Me
 
   <div style="flex: 1; min-width: 200px; padding: 0.5rem;">
   <img class="column-img" src="public/images/sing.jpeg" alt="Headshot"/>
+  </div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center;">
+  <div style="flex: 1; min-width: 200px; padding: 0.5rem;">
+  <img class="column-img" src="public/images/laugh.jpeg" alt="Headshot"/>
+  </div>
+  <div style="flex: 1; min-width: 200px; padding: 0.5rem;">
+  And I appreciate a good sense of humor.
   </div>
 </div>
 
