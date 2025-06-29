@@ -13,12 +13,12 @@ title: About Me
   </div>
 </div>
 
-<div style="display: flex; flex-wrap: wrap; align-items: center;">
-  <div style="flex: 1; min-width: 200px; padding: 0.5rem;">
-  <img class="column-img" src="public/images/presentation.jpg" alt="Headshot"/>
+<div class="flex-container">
+  <div class="column image-column">
+    <img class="column-img" src="public/images/presentation.jpg" alt="Headshot" />
   </div>
-  <div style="flex: 1; min-width: 200px; padding: 0.5rem;">
-  I’m an aspiring data scientist who loves explaining complex concepts to people.
+  <div class="column text-column">
+    I’m an aspiring data scientist who loves explaining complex concepts to people.
   </div>
 </div>
 
@@ -35,11 +35,11 @@ title: About Me
   </div>
 </div>
 
-<div style="display: flex; flex-wrap: wrap; align-items: center;">
-  <div style="flex: 1; min-width: 200px; padding: 0.5rem;">
+<div class="flex-container">
+  <div class="column image-column">
   <img class="column-img" src="public/images/hay.jpg" alt="Headshot"/>
   </div>
-  <div style="flex: 1; min-width: 200px; padding: 0.5rem;">
+  <div class="column text-column">
   My rural upbringing left me with a deep curiosity for the world and a sense of social responsibility, two traits that define who I am today.
   </div>
 </div>
@@ -58,11 +58,11 @@ title: About Me
   </div>
 </div>
 
-<div style="display: flex; flex-wrap: wrap; align-items: center;">
-  <div style="flex: 1; min-width: 200px; padding: 0.5rem;">
+<div class="flex-container">
+  <div class="column image-column">
   <img class="column-img" src="public/images/team.jpeg" alt="Headshot"/>
   </div>
-  <div style="flex: 1; min-width: 200px; padding: 0.5rem;">
+  <div class="column text-column">
   I’m drawn to teams that can solve big problems together. I’m inspired by groups that are greater than the sum of their parts.
   </div>
 </div>
@@ -80,11 +80,11 @@ title: About Me
   </div>
 </div>
 
-<div style="display: flex; flex-wrap: wrap; align-items: center;">
-  <div style="flex: 1; min-width: 200px; padding: 0.5rem;">
+<div class="flex-container">
+  <div class="column image-column">
   <img class="column-img" src="public/images/library.jpg" alt="Headshot"/>
   </div>
-  <div style="flex: 1; min-width: 200px; padding: 0.5rem;">
+  <div class="column text-column">
   And I appreciate a good sense of humor.
   </div>
 </div>

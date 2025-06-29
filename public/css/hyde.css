@@ -373,3 +373,37 @@ h4, h5, h6 {
   font-size: 1rem;
 }
   */
+
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.column {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.5rem;
+}
+
+/* Default order on desktop */
+.image-column {
+  order: 1;
+}
+
+.text-column {
+  order: 2;
+}
+
+/* Flip order on small screens */
+@media (max-width: 48em) {
+  .image-column {
+    order: 2;
+  }
+
+  .text-column {
+    order: 1;
+  }
+}
+
