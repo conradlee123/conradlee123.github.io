@@ -260,11 +260,11 @@ a.sidebar-nav-item:focus {
 
 /* Custom */
 .theme-base-custom .sidebar {
-  background-color: #9c88aa;
+  background-color: 	#709fa3;
 }
 .theme-base-custom .content a,
 .theme-base-custom .related-posts li a:hover {
-  color: #9c88aa;
+  color: 	#709fa3;
 }
 
 .theme-base-custom p, .theme-base-custom a, .theme-base-custom li, .theme-base-custom span,
