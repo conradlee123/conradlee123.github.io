@@ -9,7 +9,7 @@ title: About Me
   </div>
 
   <div style="flex: 1; min-width: 200px; padding: 0.5rem;">
-  <img class="column-img" src="public/images/headshot.jpeg" alt="Headshot"/>
+  <img class="column-img" src="public/images/smile.jpg" alt="Headshot"/>
   </div>
 </div>
 
