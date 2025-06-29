@@ -24,8 +24,8 @@
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="public/apple-touch-icon-144-precomposed.png">
-                                 <link rel="shortcut icon" href="public/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="public/images/icon.jpg">
+                                 <link rel="shortcut icon" href="public/images/icon.jpg">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
@@ -93,7 +93,7 @@
         
       
 
-      <span class="sidebar-nav-item">conrad.lee@yale.edu</span>
+      <a href="mailto:conrad.lee@yale.edu"><span class="sidebar-nav-item">conrad.lee@yale.edu</span></a>
     </nav>
 
     <p>&copy; 2025. All rights reserved.</p>
@@ -104,35 +104,117 @@
     <div class="content container">
       <div class="page">
   <h1 class="page-title">EPL Player Position Analysis</h1>
-  <p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+  <p>This is a summary of my group’s final project for Yale’s AMTH 232: Advanced Linear Algebra with Applications.</p>
 
-<p>In the novel, <em>The Strange Case of Dr. Jeykll and Mr. Hyde</em>, Mr. Poole is Dr. Jekyll’s virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It’s made by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+<h2 id="the-problem">The Problem</h2>
 
-<p>There are currently two themes built on Poole:</p>
+<p>When analyzing a soccer player, we want to have a way of thinking about their <em>role</em> on the field. The simplest way to do this is through the label of a player’s <strong>position</strong>. This represents where they lie in the formation of a team.</p>
 
+<p>Managers (or coaches) use formations to give the players on the field a sense of structure. It’s the first tactical and stylistic choice that every coach makes. So when managers talk about a <strong>4-3-3</strong>, what they really mean is a birds-eye view like this:</p>
+
+<p><img class="column-img" src="public/images/soccer_4-3-3.jpg" alt="Headshot" /></p>
+
+<p><a href="https://www.storiespreschool.com/soccer_formation433.html">Image credit: Stories Preschool</a></p>
+
+<p>with 4 defenders, 3 midfielders, and 3 forwards/attackers.</p>
+
+<p>Each of these positions comes with relative attributes expected of them. For example, we should expect forwards to score more goals than defenders, and we should expect defenders to block more shots than forwards.</p>
+
+<p>But this is just in theory. In practice, players aren’t beholden to the attributes of their position. Their roles are fluid and they play to their strengths. They move all around the field, interchangings positions and adapting to different demands based on their strengths. <em>Role is more nuanced than a simple definition of position.</em></p>
+
+<p>So how can we better quantify a player’s role? Position labels are <em>qualitative</em>, but we want something <em>quantitative</em>. We can compare a collection of player stats (like goals scored) and start getting an idea.</p>
+
+<p>However, if we can use all stats to <strong>create a single metric</strong> for comparing all players on the field, we can better understand how a player fits within their team. And, with this information, maybe we can identify players that could play in different positions– or players whose positional label doesn’t reflect their true role on the field.</p>
+
+<h2 id="the-method">The Method</h2>
+
+<p>Enter dimension reduction. This will allow us to <strong>project high-dimensional data onto lower dimensions</strong>, meaning we can visualize all of a player’s stats in (for our project) two dimensions.</p>
+
+<p>The main dimension technique we used in our final project was Principal Component Analysis, or PCA. This is a <strong>linear technique</strong> for <strong>projecting high-dimensional data onto lower dimensions</strong> in a way that <strong>captures the most variance in the data</strong>. (Using non-linear dimension reduction techniques such as t-SNE is a topic for further analysis, as we only briefly touched on them in our project.)</p>
+
+<h2 id="the-procedure">The Procedure</h2>
+
+<p>Our group chose to analyze the player positions with four Premier League teams from the 2024-25 PL season:</p>
 <ul>
-  <li><a href="http://hyde.getpoole.com">Hyde</a></li>
-  <li><a href="http://lanyon.getpoole.com">Lanyon</a></li>
+  <li>Liverpool FC</li>
+  <li>AFC Bournemouth</li>
+  <li>Manchester United FC</li>
+  <li>Chelsea FC</li>
 </ul>
 
-<p>Learn more and contribute on <a href="https://github.com/poole">GitHub</a>.</p>
+<p><em>Within each team,</em> player data was pulled from FBRef. For all field players (excluding goalkeepers), 75 different statistics were used, including metrics for passing, shooting, defending, and others.</p>
 
-<h2 id="setup">Setup</h2>
-
-<p>Some fun facts about the setup of this project include:</p>
-
+<p>Some notes on how these metrics were chosen:</p>
 <ul>
-  <li>Built for <a href="http://jekyllrb.com">Jekyll</a></li>
-  <li>Developed on GitHub and hosted for free on <a href="https://pages.github.com">GitHub Pages</a></li>
-  <li>Coded with <a href="http://sublimetext.com">Sublime Text 2</a>, an amazing code editor</li>
-  <li>Designed and developed while listening to music like <a href="https://soundcloud.com/maddecent/sets/blood-bros-series">Blood Bros Trilogy</a></li>
+  <li>All metrics were standardized by minutes played to ensure comparability.</li>
+  <li>We used expected goals and assists (xG/xA) instead of goals and assists. Expected goals gives us a better measure of a player’s goalscoring threat than goals itself, as whether a shot goes in or not is somewhat random.</li>
+  <li>We excluded most set piece statistics, as we’re focused on player contributions <em>in open play</em>.</li>
+  <li>This is an analysis <em>within</em> each team– we’re comparing players across positions. You could just as easily compare players <em>across</em> teams and <em>within</em> positions.</li>
 </ul>
 
-<p>Have questions or suggestions? Feel free to <a href="https://github.com/poole/issues/new">open an issue on GitHub</a> or <a href="https://twitter.com/mdo">ask me on Twitter</a>.</p>
+<p>We then applied PCA to this dataset to project the data onto two dimensions. This low-dimensional data allows us to visualize how players cluster across positions– and to see if any players stand out.</p>
 
-<p>Thanks for reading!</p>
+<h2 id="the-results">The Results</h2>
+
+<p>Let’s start with the Liverpool PCA plot.</p>
+
+<p><img class="column-img" src="public/images/liverpool.png" alt="Headshot" /></p>
+
+<p>The players are clustered well by position. For example, van Dijk (top right) is much closer to Konate than he is to Salah. But there are some interesting findings as well, as shown on the graph.</p>
+
+<p>Note that the axes defy simple interpretation– they’re determined by what preserves the most variance in the data, without any soccer/tactical rationale. But it would appear that the first principal component separates well into players further up the field (on the left) and further back (on the right).</p>
+
+<p>Now let’s take a look at the Bournemouth PCA plot.</p>
+
+<p><img class="column-img" src="public/images/bmouth.png" alt="Headshot" /></p>
+
+<p>The axis is flipped, but the plot still filters between defensive players (to the left) and attacking players (to the right) with the first principal component. Based on this plot, we can identify more aggresive “defenders” (Kerkez and Smith) and more defensive “midfielders” (Adams and Cook).</p>
+
+<p>Manchester United is next.</p>
+
+<p><img class="column-img" src="public/images/manunited.png" alt="Headshot" /></p>
+
+<p>Again, the first pricipal component discrimates between more defensive players and more offensive players. Note that patterns in this plot may be skewed by the fact that Manchester United changed its manager midway through the season.</p>
+
+<p>Lastly, let’s look at the Chelsea plot.</p>
+
+<p><img class="column-img" src="public/images/chelsea.png" alt="Headshot" /></p>
+
+<p>There’s a lot of information conveyed in these charts, especially for those who aren’t as familiar with soccer or PCA. Let’s do a deeper dive into this last chart to get a better idea of what it’s telling us.</p>
+
+<h2 id="analysis-chelsea-defenders">Analysis: Chelsea Defenders</h2>
+
+<p>Take another look at the bottom left of the Chelsea PCA plot.</p>
+
+<p><img class="column-img" src="public/images/chelsea_bold.png" alt="Headshot" /></p>
+
+<p>Gusto and James are defenders, but they’re clearly clumped with the midfielders (Gusto especially). Why?</p>
+
+<p>You can <a href="https://youtube.com/shorts/KyGFLo8xtak?feature=shared">click here</a> to see Enzo Maresca, the manager of Chelsea, explain.</p>
+
+<p>At the beginning of the video, Maresca says that he like to have one of his wide defenders play like a central midfielder when his team has the ball. Like this:</p>
+
+<p><img class="column-img" src="public/images/inverted_fullbacks.jpeg" alt="Headshot" /></p>
+
+<p><a href="https://tacticsjournal.com/2024/07/25/chelsea-will-use-inverted-fullbacks/">Image credit: Tactics Journal</a></p>
+
+<p>Gusto and James are often the players that “invert” into this central position. Some screenshots from Premier League games show this well.</p>
+
+<p><img class="column-img" src="public/images/cucarella.png" alt="Headshot" /></p>
+
+<p><a href="https://www.nytimes.com/athletic/5793505/2024/09/26/cucurella-inverted-full-back/">Image credit: New York Times</a></p>
+
+<p><img class="column-img" src="public/images/gusto.jpg" alt="Headshot" /></p>
+
+<p><a href="https://the-footballanalyst.com/inverted-fullbacks-football-tactics-explained/">Image credit: The Football Analyst</a></p>
+
+<p>No wonder Gusto and James are clumped with the other midfielders– they essentially are midfielders! Their label as a “defender” doesn’t reflect their true role. In this way, the PCA plot shows us the latent structure of the Chelsea team that simple positional labels do not.</p>
+
+<h2 id="the-conclusion">The Conclusion</h2>
+
+<p>Our simple PCA method allows us to better understand player roles within a team and how they relate to a player’s “position”. These plots allows us to make complex inferences about the tactical structure for multiple Premier League teams.</p>
+
+<p>This is just a start– there’s lots of room to continue this analysis! Let me know what you think.</p>
 
 </div>
 

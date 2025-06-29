@@ -24,8 +24,8 @@
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="public/apple-touch-icon-144-precomposed.png">
-                                 <link rel="shortcut icon" href="public/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="public/images/icon.jpg">
+                                 <link rel="shortcut icon" href="public/images/icon.jpg">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
@@ -93,7 +93,7 @@
         
       
 
-      <span class="sidebar-nav-item">conrad.lee@yale.edu</span>
+      <a href="mailto:conrad.lee@yale.edu"><span class="sidebar-nav-item">conrad.lee@yale.edu</span></a>
     </nav>
 
     <p>&copy; 2025. All rights reserved.</p>
@@ -104,35 +104,173 @@
     <div class="content container">
       <div class="page">
   <h1 class="page-title">Senior Thesis: College Soccer Ranking Bias</h1>
-  <p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+  <p>This is a high-level overview of my senior undergraduate thesis. If you’re looking for the nitty-gritty, you can download the complete thesis <a href="AMTH_Thesis_CL.pdf" download="">here.</a></p>
 
-<p>In the novel, <em>The Strange Case of Dr. Jeykll and Mr. Hyde</em>, Mr. Poole is Dr. Jekyll’s virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It’s made by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+<h2 id="what-is-rpi">What is RPI?</h2>
 
-<p>There are currently two themes built on Poole:</p>
+<p>The NCAA uses the Rating Percentage Index (RPI) to rank college soccer teams. RPI is determined by:</p>
 
+<p align="center"><strong>(0.25 &times; WP) + (0.50 &times; OWP) + (0.25 &times; OOWP) + A</strong></p>
+
+<p>where, for each team,</p>
 <ul>
-  <li><a href="http://hyde.getpoole.com">Hyde</a></li>
-  <li><a href="http://lanyon.getpoole.com">Lanyon</a></li>
+  <li>“WP” is their <em>Win Percentage</em>;</li>
+  <li>“OWP” is their <em>Opponents’ Win Percentage</em>;</li>
+  <li>“OOWP” is their <em>Opponents’ Opponents’ Win Percentage</em>; and</li>
+  <li>“A” is a small adjustment accounting for home-field advantage.</li>
 </ul>
 
-<p>Learn more and contribute on <a href="https://github.com/poole">GitHub</a>.</p>
+<p>At the end of the regular season, the NCAA publishes the RPI rankings for all Division I (D1) Men’s Soccer teams. These rankings are a key factor in determining which 26 teams receive at-large bids to participate in the NCAA D1 Men’s Soccer Championship.</p>
 
-<h2 id="setup">Setup</h2>
+<h2 id="motivation">Motivation</h2>
 
-<p>Some fun facts about the setup of this project include:</p>
+<p>Note that only 25% of the RPI formula is weighted on a team’s <strong>performance (WP)</strong>. The other 75% is weighted on a team’s <strong>context (OWP + OOWP)</strong>.</p>
+
+<p>It has been claimed that <em>RPI is biased towards teams from stonger conferences because of its weight on <strong>context</strong> over <strong>performance</strong>.</em> However, I couldn’t find a formal investigation of this claim for D1 Men’s Soccer. So, I decided to do one myself.</p>
+
+<p>(Chris Thomas does an excellent statistical analysis for NCAA D1 Women’s Soccer. You can and should view his work <em>here</em>.)</p>
+
+<h2 id="procedure">Procedure</h2>
 
 <ul>
-  <li>Built for <a href="http://jekyllrb.com">Jekyll</a></li>
-  <li>Developed on GitHub and hosted for free on <a href="https://pages.github.com">GitHub Pages</a></li>
-  <li>Coded with <a href="http://sublimetext.com">Sublime Text 2</a>, an amazing code editor</li>
-  <li>Designed and developed while listening to music like <a href="https://soundcloud.com/maddecent/sets/blood-bros-series">Blood Bros Trilogy</a></li>
+  <li>First, simulations were performed to <strong>identify potential reweightings</strong> of the RPI formula.</li>
+  <li>Then, these reweightings were <strong>evaluated on simulated data</strong>. Reweighted rankings were assessed for <strong>two criteria</strong>: <em>predictive accuracy</em> (how often the higher-ranked team wins) and <em>preference for stronger-conference teams</em>.</li>
+  <li>Lastly, these reweightings were <strong>reevaluated on real 2024 season data</strong> using similar methodology.</li>
 </ul>
 
-<p>Have questions or suggestions? Feel free to <a href="https://github.com/poole/issues/new">open an issue on GitHub</a> or <a href="https://twitter.com/mdo">ask me on Twitter</a>.</p>
+<h2 id="analysis-and-results">Analysis and Results</h2>
 
-<p>Thanks for reading!</p>
+<h3 id="selection-of-reweightings">Selection of Reweightings</h3>
+
+<p>I started by performing six different sets of 1000-season simulations, varying parameters each time. I then determined predictive accuracy for <em>all</em> potential weightings of the RPI formula. The best are shown below.</p>
+
+<!-- 
+<table class="custom-table">
+  <caption>Best RPI Weightings Vary With Simulation Parameters</caption>
+  <thead>
+    <tr>
+      <th>Simulation</th>
+      <th>Best RPI Weighting<br>(WP, OWP, OOWP)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simulation 1</td>
+      <td>(0.25 &times; WP) + (0.30 &times; OWP) + (0.45 &times; OOWP)</td>
+    </tr>
+    <tr>
+      <td>Simulation 2</td>
+      <td>(0.25, 0.30, 0.45)</td>
+    </tr>
+    <tr>
+      <td>Simulation 3</td>
+      <td>(0.45, 0.40, 0.15)</td>
+    </tr>
+    <tr>
+      <td>Simulation 4</td>
+      <td>(0.30, 0.25, 0.45)</td>
+    </tr>
+    <tr>
+      <td>Simulation 5</td>
+      <td>(0.45, 0.40, 0.15)</td>
+    </tr>
+    <tr>
+      <td>Simulation 6</td>
+      <td>(0.30, 0.30, 0.40)</td>
+    </tr>
+  </tbody>
+</table>
+-->
+
+<table class="custom-table">
+  <caption>Most Predictive RPI Weightings Vary With Simulation Parameters</caption>
+  <thead>
+    <tr>
+      <th>Simulation</th>
+      <th>Best WP Weighting</th>
+      <th>Best OWP Weighting</th>
+      <th>Best OOWP Weighting</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Simulations 1 + 2</td>
+      <td>0.25</td>
+      <td>0.30</td>
+      <td>0.45</td>
+    </tr>
+    <tr>
+      <td>Simulations 3 + 5</td>
+      <td>0.45</td>
+      <td>0.40</td>
+      <td>0.15</td>
+    </tr>
+    <tr>
+      <td>Simulation 4</td>
+      <td>0.30</td>
+      <td>0.25</td>
+      <td>0.45</td>
+    </tr>
+    <tr>
+      <td>Simulation 6</td>
+      <td>0.30</td>
+      <td>0.30</td>
+      <td>0.40</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>These four highest-performing weightings were selected for further analysis. Two high-performing weightings (both with <em>WP &gt; 0.25</em>) were added to diversify the selection:</p>
+<ul>
+  <li>(0.35 × WP) + (0.35 × OWP) + (0.30 × OOWP)</li>
+  <li>(0.40 × WP) + (0.35 × OWP) + (0.25 × OOWP)</li>
+</ul>
+
+<h3 id="evaluation-of-reweightings-on-simulated-data">Evaluation of Reweightings on Simulated Data</h3>
+
+<p>I then ran more 1000-season simulations, varying parameters each time, to more thoroughly assess each ranking’s strong-conference preference and predictive accuracy.</p>
+
+<p>I compared results for reweightings with those for the standard RPI weighting <em>(0.25 × WP) + (0.50 × OWP) + (0.25 × OOWP)</em>.</p>
+
+<p><img class="column-img" src="public/images/ConfPrefSim.png" alt="Headshot" /></p>
+
+<p><img class="column-img" src="public/images/PredAccSim.png" alt="Headshot" /></p>
+
+<p>The standard RPI weighting <em>prefers teams from stronger conferences at the expense of predictive accuracy</em>. In other words, this weighting is <em>biased towards stronger conference teams</em> in the context of these simulations.</p>
+
+<h3 id="evaluation-of-reweightings-on-2024-season-data">Evaluation of Reweightings on 2024 Season Data</h3>
+
+<p>I validated simulation results by assessing strong-conference preference and predictive accuracy on the 2024 NCAA D1 season for each ranking.</p>
+
+<p>Again, I compared reweighting results with those for the standard RPI weighting (0.25, 0.5, 0.25).</p>
+
+<p><img class="column-img" src="public/images/ConfPref2024.png" alt="Headshot" /></p>
+
+<p>The standard RPI weighting still <em>prefers teams from stronger conferences</em>. However,</p>
+
+<p><img class="column-img" src="public/images/PredAcc2024.png" alt="Headshot" /></p>
+
+<p>the standard RPI weighting also has a <em>higher predictive accuracy</em>,</p>
+
+<p>Why is this? It’s likely because of an <em>unequal distribution of home-field advantage across conferences</em>.</p>
+
+<p><img class="column-img" src="public/images/HomeAdv.jpg" alt="Headshot" /></p>
+
+<p>Teams from stronger conferences enjoy the benefit of playing more games at home. This boosts win percentage and RPI. <em>This meanss the predictive accuracy metric favors teams that play more games at home (and win more), <strong>not teams that are actually stronger</strong></em>.</p>
+
+<p>Because of this, the predictive accuracy results for the 2024 season <em>do not contradict</em> the simulation results. When home advantage is unequally distributed, <em>a stronger predictive accuracy doesn’t necessarily imply a stronger ranking system</em>. We can no longer assume that on-field results provide the only proxy for team strength.</p>
+
+<p>More analysis is needed to confirm this interpretation. (Coming soon?)</p>
+
+<h2 id="conclusions-and-recommendations">Conclusions and Recommendations</h2>
+
+<p>My paper concludes with some specific recommendations for the NCAA, including:</p>
+<ul>
+  <li>Changing the RPI formula to account for home-field advantage</li>
+  <li>Changing the RPI formula to increase the relative weighting on performance (WP)</li>
+</ul>
+
+<p>My analysis leaves room to be expanded, especially with home-field advantage and with data from pre-2024 seasons.</p>
 
 </div>
 

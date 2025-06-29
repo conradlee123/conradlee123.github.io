@@ -50,7 +50,7 @@ title: About Me
 
 <div style="display: flex; flex-wrap: wrap; align-items: center;">
   <div style="flex: 1; min-width: 200px; padding: 0.5rem;">
-  When I’m not seeking to use data to help people, I like playing soccer.
+  When I’m not looking to use data to help people, I like playing soccer.
   </div>
 
   <div style="flex: 1; min-width: 200px; padding: 0.5rem;">
@@ -91,4 +91,4 @@ title: About Me
 
 <br>
 
-I’m currently looking for next steps after graduation. If you can help me find a new home for my analytical mind, please don’t hesitate to contact me. I’d love to hear from you.
+I’m currently looking for next steps after graduation. If you can help me find a new home for my analytical mind, please don’t hesitate to [contact me](mailto:conrad.lee@yale.edu). I’d love to hear from you.

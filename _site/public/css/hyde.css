@@ -75,6 +75,10 @@ html {
   color: #f9f9f9;
 }
 
+.sidebar span {
+  color: rgba(255, 255, 255, .5) !important;
+}
+
 /* About section */
 .sidebar-about h1 a {
   color: #fbfbfb;
@@ -283,7 +287,68 @@ a.sidebar-nav-item:focus {
 
 .column-img {
   margin: 0 !important;
+  /*border-radius: 0px;*/
 }
+
+
+    .custom-table {
+      border: none;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    table, td, th {
+      border: none !important;
+    }
+
+    .custom-table th {
+      font-weight: 400;
+    }
+
+    .custom-table caption {
+      font-size: 1.4em;
+      font-weight: 400;
+      margin-bottom: 0.5em;
+    }
+
+    .custom-table thead tr {
+      border-bottom: 1px solid #313131;
+      border-top: 0px;
+      border-left: 0px;
+      border-right: 0px;
+      font-weight: 400;
+    }
+
+    .custom-table tbody tr:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.01);
+    }
+
+    .custom-table td,
+    .custom-table th {
+      padding: 10px;
+    }
+
+    .custom-table td:nth-child(2),
+    .custom-table td:nth-child(3),
+    .custom-table td:nth-child(4),
+    .custom-table th:nth-child(2),
+    .custom-table th:nth-child(3),
+    .custom-table th:nth-child(4) {
+      text-align: center;
+    }
+    
+
+    .custom-table tbody tr:last-child {
+      border-bottom: 1px solid #313131;
+    }
+
+    .custom-table tbody tr:not(:last-child) {
+      border-bottom: none;
+      border-top: none;
+      border-left: 0px;
+      border-right: 0px;
+    }
+
 /*
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
