@@ -153,7 +153,7 @@ Why is this? It's likely because of an *unequal distribution of home-field advan
 <img class="column-img" src="public/images/HomeAdv.jpg" alt="Headshot"/>
 
 
-Teams from stronger conferences enjoy the benefit of playing more games at home. This boosts win percentage and RPI. *This meanss the predictive accuracy metric favors teams that play more games at home (and win more), **not teams that are actually stronger***. 
+Teams from stronger conferences enjoy the benefit of playing more games at home. This boosts win percentage and RPI. *This means the predictive accuracy metric favors teams that play more games at home (and win more), **not teams that are actually stronger***. 
 
 Because of this, the predictive accuracy results for the 2024 season *do not contradict* the simulation results. When home advantage is unequally distributed, *a stronger predictive accuracy doesn't necessarily imply a stronger ranking system*. We can no longer assume that on-field results provide the only proxy for team strength.
 
