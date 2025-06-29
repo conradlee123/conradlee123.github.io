@@ -82,7 +82,7 @@ title: About Me
 
 <div style="display: flex; flex-wrap: wrap; align-items: center;">
   <div style="flex: 1; min-width: 200px; padding: 0.5rem;">
-  <img class="column-img" src="public/images/laugh.jpeg" alt="Headshot"/>
+  <img class="column-img" src="public/images/library.jpg" alt="Headshot"/>
   </div>
   <div style="flex: 1; min-width: 200px; padding: 0.5rem;">
   And I appreciate a good sense of humor.
